@@ -1,0 +1,60 @@
+
+
+<div class="col-lg-3">
+  <h1>User Info</h1>
+
+  <table class="profile">
+
+    <tr>
+    <th>name</th>
+    <td><%= @user.name %></td>
+    </tr>
+    <tr>
+    <th>introduction</th>
+    <td><%= @user.introduction %></td>
+    </tr>
+    <%= attachment_image_tag @user, :profile_image, :fill, 40, 40, fallback: "no_image.jpg" %>
+
+  </table>
+
+
+
+    <%= link_to edit_user_path(@user.id) do %>
+      <button class="btn btn-default" aria-label="Center Align" type="button">
+       <span class="glyphicon glyphicon-align-center" aria-hidden="true"></span>
+    </button>
+    <% end %>
+
+
+
+<h1>New book</h1>
+  <%= form_for(Book.new) do |f| %>
+  <h2>Title</h2>
+    <%= f.text_field :title %>
+  <h2>Opinion</h2>
+    <%= f.text_area :body %>
+    <br>
+    <%= f.submit "Create Book" %>
+<% end %>
+</div>
+
+
+<div class="col-lg-9">
+<h1>Book detail</h1>
+    <tr>
+      <td><%= attachment_image_tag @book.user, :profile_image, :fill, 40, 40, fallback: "no_image.jpg", size: "40x40" %></td>
+      <td><%= @book.title %></td>
+      <td><%= @book.body %></td>
+      <% if @user == current_user %>
+      <td><%= link_to "Edit", edit_book_path(@book) %></td>
+      <td><%= link_to "Destroy", book_path(@book), method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
+      <% end %>
+   </tr>
+
+  </table>
+</div>
+<%= link_to @user.name, user_path(@user) %>
+
+
+
+

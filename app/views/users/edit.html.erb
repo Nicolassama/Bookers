@@ -1,0 +1,33 @@
+<div class="col-lg-3">
+
+
+  <div class="container">
+
+    <h2>User info</h2>
+    <% if @user.errors.any? %>
+      <%= @user.errors.count %>件のエラーが発生しました
+      <% @user.errors.full_messages.each do |message| %>
+      <%= message %>
+      <% end %>
+    <% end %>
+
+    <div class="field">
+
+      <%= form_for(@user) do |f| %>
+        <div class="form-group has-icon">
+            <label class="control-label sr-only" for="inputEmail">Name</label>
+            <p>Name</p>
+            <%= f.text_field :name %>
+            <span class="fa fa-user form-control-icon" aria-hidden="true"></span>
+            <p>Image</p>
+            <%= f.attachment_field :profile_image %>
+            <p>Introduction</p>
+            <%= f.text_field :introduction %>
+        </div>
+       <div class="actions">
+        <%= f.submit "Update User", class:"btn btn-lg btn-block btn-base-1 mt-20" %>
+    	</div>
+      <% end %>
+    </div>
+  </div>
+</div>
