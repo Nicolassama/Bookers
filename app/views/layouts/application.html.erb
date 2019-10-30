@@ -16,8 +16,7 @@
         <nav class='nav navbar-nav navbar-left' >
           <span>Bookers</span>
         </nav>
-
-        <div id="slidemenu">
+        <div class="container">
           <ul class="nav navbar-nav navbar-right" data-hover="dropdown" data-animations="zoomIn fadeIn fadeInUp fadeIn">
 
             <% if user_signed_in? %>
@@ -42,9 +41,8 @@
       <% if flash[:notice] %>
        <%= flash[:notice] %>
       <% end %>
-
      <%= yield %>
-    </div>
+   </div>
     <footer>
   <div class='container'>
     <div class='row'>
