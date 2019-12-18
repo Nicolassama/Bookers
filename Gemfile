@@ -75,3 +75,10 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'jquery-rails'
 
 gem "pry-byebug"
+
+
+group :production do
+  gem 'mysql2'
+end
+
+
